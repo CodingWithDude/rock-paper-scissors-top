@@ -10,27 +10,46 @@ Plays single round
 make player selecton case-insensitive
 */
 
-// function to let the computerPlay
-function computerPlay() {
+const moveOptions = ["rock","paper","scissors"]
+
+// function for computer's move
+function computerMove() {
     // random computerSelection of 0,1,2 for rock paper scissors
-    let moveOptions = ["Rock","Paper","Scissors"]
     let randomChoice = Math.floor(Math.random()*3)
-    // return computerSelection
+    // return value for computerSelection
     return moveOptions[randomChoice]
 }
 
-// creating computerSelection
-const computerSelection = computerPlay()
-// testing functionality
-console.log(computerSelection)
-    
-    // return computerSelection
+
+// function for players move
+function playerMove() {
+    // get player input in lowercase string
+    let playerChoice = prompt("Please choose a move of rock, paper, or scissors").toLowerCase()
+    // validate input loop .indexOf returns -1 if no match in array
+    while (moveOptions.indexOf(playerChoice) === -1) {
+        alert("That is not a valid choice!")
+        playerChoice = prompt("Please choose a move of rock, paper, or scissors")
+    }
+    return playerChoice
+
+}
 
 // function to playGame
-    // prompt for playerSelection
+    
     // if playerSelection === computerSelection
         // return "The game is a draw!"
     // else if playerSelection beats computerSelection
         // return "The Player wins the game!"
     // else 
         // return "The Computer wins the game!"
+
+
+// creating computerSelection
+const computerSelection = computerMove()
+// testing functionality
+console.log(computerSelection)
+
+// creating playerSelection
+const playerSelection = playerMove()
+// testing functionality
+console.log(playerSelection)
