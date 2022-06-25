@@ -7,7 +7,9 @@ Plays single round
     function takes two parameters(playerSelection, computerSelection)
         return string that declars the winner
 
-make player selecton case-insensitive
+Make player selecton case-insensitive
+
+Currently only output is via console - see readme for more info
 */
 
 const moveOptions = ["rock","paper","scissors"]
@@ -20,7 +22,6 @@ function computerMove() {
     return moveOptions[randomChoice]
 }
 
-
 // function for players move
 function playerMove() {
     // get player input in lowercase string
@@ -31,25 +32,30 @@ function playerMove() {
         playerChoice = prompt("Please choose a move of rock, paper, or scissors")
     }
     return playerChoice
-
 }
 
 // function to playGame
+function playGame(){
+    // get computer and player moves
+    const playerSelection = playerMove()
+    console.log("Player Selection: " + playerSelection)
+    const computerSelection = computerMove()
+    console.log("Computer Selection: " + computerSelection)
     
-    // if playerSelection === computerSelection
-        // return "The game is a draw!"
-    // else if playerSelection beats computerSelection
-        // return "The Player wins the game!"
-    // else 
-        // return "The Computer wins the game!"
 
+    // check for tie or winner
+    if (computerSelection === playerSelection) {
+        console.log("The game is a Tie!")
+    } else if (computerSelection === "paper" && playerSelection === 'rock') {
+        console.log("The Computer Wins!")
+    } else if (computerSelection === "rock" && playerSelection === 'scissors') {
+        console.log("The Computer Wins!")
+    } else if (computerSelection === "scissors" && playerSelection === 'paper') {
+        console.log("The Computer Wins!")
+    } else {
+        console.log("The Player Wins!")
+    }
+}
 
-// creating computerSelection
-const computerSelection = computerMove()
-// testing functionality
-console.log(computerSelection)
-
-// creating playerSelection
-const playerSelection = playerMove()
-// testing functionality
-console.log(playerSelection)
+// runs game
+playGame()
