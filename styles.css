@@ -1,4 +1,12 @@
-* {
-  background-color: black;
-  color: white;
+.title {
+  text-align: center;
+  font-size: 48px;
+  color: blue;
+  margin: 16px 16px;
+}
+.buttons {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }

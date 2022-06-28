@@ -9,54 +9,53 @@ Plays single round
 
 Make player selecton case-insensitive
 
-Currently only output is via console - see readme for more info
+Working on the UI elements
 */
 
 const moveOptions = ["rock", "paper", "scissors"];
+let playerResult = document.querySelector(".playerResult");
+let computerResult = document.querySelector(".computerResult");
+let winner = document.querySelector(".winner");
 
-// function for computer's move
 function computerMove() {
-  // random computerSelection of 0,1,2 for rock paper scissors
   let randomChoice = Math.floor(Math.random() * 3);
-  // return value for computerSelection
   return moveOptions[randomChoice];
 }
 
-// function for players move
-function playerMove() {
-  // get player input in lowercase string
-  let playerChoice = prompt(
-    "Please choose a move of rock, paper, or scissors"
-  ).toLowerCase();
-  // validate input loop .indexOf returns -1 if no match in array
-  while (moveOptions.indexOf(playerChoice) === -1) {
-    alert("That is not a valid choice!");
-    playerChoice = prompt("Please choose a move of rock, paper, or scissors");
-  }
-  return playerChoice;
-}
-
-// function to playGame
-function playGame() {
-  // get computer and player moves
-  const playerSelection = playerMove();
-  console.log("Player Selection: " + playerSelection);
-  const computerSelection = computerMove();
-  console.log("Computer Selection: " + computerSelection);
-
-  // check for tie or winner
+function checkGame() {
   if (computerSelection === playerSelection) {
-    console.log("The game is a Tie!");
+    winner.innerHTML = "The Game is a Tie!";
   } else if (computerSelection === "paper" && playerSelection === "rock") {
-    console.log("The Computer Wins!");
+    winner.innerHTML = "The Computer Wins!";
   } else if (computerSelection === "rock" && playerSelection === "scissors") {
-    console.log("The Computer Wins!");
+    winner.innerHTML = "The Computer Wins!";
   } else if (computerSelection === "scissors" && playerSelection === "paper") {
-    console.log("The Computer Wins!");
+    winner.innerHTML = "The Computer Wins!";
   } else {
-    console.log("The Player Wins!");
+    winner.innerHTML = "The Player Wins!";
   }
 }
 
-// runs game
-playGame();
+function playerMove(e) {
+  let element = e.target;
+  if (element.className === "rock") {
+    playerSelection = "rock";
+  }
+  if (element.className === "paper") {
+    playerSelection = "paper";
+  }
+  if (element.className === "scissors") {
+    playerSelection = "scissors";
+  }
+  playerResult.innerText = "Player: " + playerSelection;
+  playGame();
+}
+
+function playGame() {
+  computerSelection = computerMove();
+  computerResult.innerText = "Computer: " + computerSelection;
+  checkGame();
+}
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => button.addEventListener("click", playerMove));
