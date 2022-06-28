@@ -1,12 +1,56 @@
+* {
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .title {
   text-align: center;
   font-size: 48px;
   color: blue;
   margin: 16px 16px;
 }
-.buttons {
+.buttons,
+.result,
+.winner {
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
+  gap: 16px;
+  margin: 32px;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+}
+
+svg {
+  width: 900px;
+  animation-name: animate;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes animate {
+  0% {
+    filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px #fff)
+      drop-shadow(0px 0px 10px #ff80b3) drop-shadow(0px 0px 30px #ff4d94)
+      drop-shadow(0px 0px 50px #ff0066);
+  }
+
+  100% {
+    filter: drop-shadow(0px 0px 3px #fff) drop-shadow(0px 0px 6px #fff)
+      drop-shadow(0px 0px 15px #ff80b3) drop-shadow(0px 0px 40px #ff4d94)
+      drop-shadow(0px 0px 60px #ff0066);
+  }
 }
