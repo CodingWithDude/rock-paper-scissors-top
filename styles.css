@@ -11,17 +11,21 @@ body {
   background-position: center;
   background-size: cover;
 }
+
 .title {
   text-align: center;
-  font-size: 48px;
-  color: blue;
+  font-size: 96px;
+  filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px #fff)
+    drop-shadow(0px 0px 1px #050404) drop-shadow(0px 0px 1px #050404)
+    drop-shadow(0px 0px 1px #050404);
   margin: 16px 16px;
 }
+.title,
 .buttons,
 .result,
 .winner {
   display: flex;
-  flex: 1;
+
   justify-content: center;
   align-items: center;
   gap: 16px;
@@ -30,27 +34,70 @@ body {
 
 .button {
   border: none;
+  width: 100px;
   background-color: transparent;
+  flex: 1 1 auto;
 }
 
-svg {
-  width: 900px;
-  animation-name: animate;
-  animation-duration: 0.8s;
+.rock,
+.paper,
+.scissors {
+  width: 100px;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-@keyframes animate {
+.rock {
+  animation-name: rock;
+}
+
+.paper {
+  animation-name: paper;
+}
+
+.scissors {
+  animation-name: scissors;
+}
+
+@keyframes rock {
   0% {
     filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px #fff)
-      drop-shadow(0px 0px 10px #ff80b3) drop-shadow(0px 0px 30px #ff4d94)
-      drop-shadow(0px 0px 50px #ff0066);
+      drop-shadow(0px 0px 10px #c77b38) drop-shadow(0px 0px 30px #995f2c)
+      drop-shadow(0px 0px 50px #5c391a);
   }
 
   100% {
     filter: drop-shadow(0px 0px 3px #fff) drop-shadow(0px 0px 6px #fff)
-      drop-shadow(0px 0px 15px #ff80b3) drop-shadow(0px 0px 40px #ff4d94)
-      drop-shadow(0px 0px 60px #ff0066);
+      drop-shadow(0px 0px 15px #c77b38) drop-shadow(0px 0px 40px #995f2c)
+      drop-shadow(0px 0px 60px #5c391a);
+  }
+}
+
+@keyframes paper {
+  0% {
+    filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px #fff)
+      drop-shadow(0px 0px 10px #34eb4f) drop-shadow(0px 0px 30px #249c35)
+      drop-shadow(0px 0px 50px #14571d);
+  }
+
+  100% {
+    filter: drop-shadow(0px 0px 3px #fff) drop-shadow(0px 0px 6px #fff)
+      drop-shadow(0px 0px 15px #34eb4f) drop-shadow(0px 0px 40px #249c35)
+      drop-shadow(0px 0px 60px #14571d);
+  }
+}
+
+@keyframes scissors {
+  0% {
+    filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px #fff)
+      drop-shadow(0px 0px 10px #33a2de) drop-shadow(0px 0px 30px #247dad)
+      drop-shadow(0px 0px 50px #164d6b);
+  }
+
+  100% {
+    filter: drop-shadow(0px 0px 3px #fff) drop-shadow(0px 0px 6px #fff)
+      drop-shadow(0px 0px 15px #33a2de) drop-shadow(0px 0px 40px #247dad)
+      drop-shadow(0px 0px 60px #164d6b);
   }
 }
