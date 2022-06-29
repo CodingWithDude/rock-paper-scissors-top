@@ -9,23 +9,27 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="title">Rock, Paper, Scissors</div>
+    <div class="banner">
+      <img class="title" src="images/title.svg" alt="Rock Paper Scissors" />
+    </div>
     <div class="buttons">
       <button class="button">
-        <img class="rock" src="images/rock.svg" alt="" />
+        <img class="rock" src="images/rock.svg" alt="Rock" />
       </button>
       <button class="button">
-        <img class="paper" src="images/paper.svg" alt="" />
+        <img class="paper" src="images/paper.svg" alt="Paper" />
       </button>
       <button class="button">
-        <img class="scissors" src="images/scissors.svg" alt="" />
+        <img class="scissors" src="images/scissors.svg" alt="Scissors" />
       </button>
+    </div>
+    <div class="moves">
+      <div class="playerImage"></div>
+      <div class="computerImage"></div>
     </div>
     <div class="result">
-      <div class="playerResult"></div>
-      <div class="computerResult"></div>
+      <div class="winnerMessage"></div>
     </div>
-    <div class="winner"></div>
 
     <script src="index.js"></script>
   </body>

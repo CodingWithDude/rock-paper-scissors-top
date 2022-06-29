@@ -15,24 +15,38 @@ Working on the UI elements
 const moveOptions = ["rock", "paper", "scissors"];
 let playerResult = document.querySelector(".playerResult");
 let computerResult = document.querySelector(".computerResult");
-let winner = document.querySelector(".winner");
+let winnerMessage = document.querySelector(".winner");
+let playerImage = document.querySelector(".playerImage");
+let computerImage = document.querySelector(".computerImage");
 
 function computerMove() {
   let randomChoice = Math.floor(Math.random() * 3);
+  if ((randomChoice = 0)) {
+    computerImage.innerHTML =
+      '<img class="resultImage" src="images/rock.svg" alt="Rock" />';
+  }
+  if ((randomChoice = 1)) {
+    computerImage.innerHTML =
+      '<img class="resultImage" src="images/paper.svg" alt="paper" />';
+  }
+  if ((randomChoice = 2)) {
+    computerImage.innerHTML =
+      '<img class="resultImage" src="images/scissors.svg" alt="scissors" />';
+  }
   return moveOptions[randomChoice];
 }
 
 function checkGame() {
   if (computerSelection === playerSelection) {
-    winner.innerHTML = "The Game is a Tie!";
+    winnerMessage.innerHTML = "The Game is a Tie!";
   } else if (computerSelection === "paper" && playerSelection === "rock") {
-    winner.innerHTML = "The Computer Wins!";
+    winnerMessage.innerHTML = "The Computer Wins!";
   } else if (computerSelection === "rock" && playerSelection === "scissors") {
-    winner.innerHTML = "The Computer Wins!";
+    winnerMessage.innerHTML = "The Computer Wins!";
   } else if (computerSelection === "scissors" && playerSelection === "paper") {
-    winner.innerHTML = "The Computer Wins!";
+    winnerMessage.innerHTML = "The Computer Wins!";
   } else {
-    winner.innerHTML = "The Player Wins!";
+    winnerMessage.innerHTML = "The Player Wins!";
   }
 }
 
@@ -40,20 +54,24 @@ function playerMove(e) {
   let element = e.target;
   if (element.className === "rock") {
     playerSelection = "rock";
+    playerImage.innerHTML =
+      '<img class="resultImage" src="images/rock.svg" alt="Rock"  />';
   }
   if (element.className === "paper") {
     playerSelection = "paper";
+    playerImage.innerHTML =
+      '<img class="resultImage" src="images/paper.svg" alt="Rock" />';
   }
   if (element.className === "scissors") {
     playerSelection = "scissors";
+    playerImage.innerHTML =
+      '<img class="resultImage" src="images/scissors.svg" alt="Rock" />';
   }
-  playerResult.innerText = "Player: " + playerSelection;
   playGame();
 }
 
 function playGame() {
   computerSelection = computerMove();
-  computerResult.innerText = "Computer: " + computerSelection;
   checkGame();
 }
 

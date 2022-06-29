@@ -2,65 +2,85 @@
   color: white;
   padding: 0;
   margin: 0;
+  /* border: red 2px solid; */
 }
 
 body {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
   background-color: black;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  margin: 16px;
+  margin-top: 36px;
 }
 
-.title {
-  text-align: center;
-  font-size: 96px;
-  filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px #fff)
-    drop-shadow(0px 0px 1px #050404) drop-shadow(0px 0px 1px #050404)
-    drop-shadow(0px 0px 1px #050404);
-  margin: 16px 16px;
-}
-.title,
-.buttons,
-.result,
-.winner {
+.banner {
   display: flex;
+  margin-bottom: 40px;
+  filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 1px #fff)
+    drop-shadow(0px 0px 5px #ff0000) drop-shadow(0px 0px 5px #ff0000)
+    drop-shadow(0px 0px 5px #ff0000);
+}
 
-  justify-content: center;
+.buttons {
+  display: flex;
   align-items: center;
-  gap: 16px;
-  margin: 32px;
+  gap: 60px;
 }
 
 .button {
   border: none;
-  width: 100px;
   background-color: transparent;
-  flex: 1 1 auto;
 }
 
 .rock,
 .paper,
 .scissors {
-  width: 100px;
-  animation-duration: 2s;
+  max-height: 400px;
+  margin: auto;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
 .rock {
-  animation-name: rock;
+  filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 0px #fff)
+    drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 1px #fff)
+    drop-shadow(0px 0px 10px #c77b38);
 }
 
 .paper {
-  animation-name: paper;
+  filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 0px #fff)
+    drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 1px #fff)
+    drop-shadow(0px 0px 10px #34eb4f);
 }
 
 .scissors {
-  animation-name: scissors;
+  filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 0px #fff)
+    drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 1px #fff)
+    drop-shadow(0px 0px 10px #33a2de);
 }
 
-@keyframes rock {
+.rock:hover,
+.active {
+  animation-name: rockHover;
+}
+
+.paper:hover,
+.active {
+  animation-name: paperHover;
+}
+
+.scissors:hover,
+.active {
+  animation-name: scissorsHover;
+}
+
+@keyframes rockHover {
   0% {
     filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px #fff)
       drop-shadow(0px 0px 10px #c77b38) drop-shadow(0px 0px 30px #995f2c)
@@ -74,7 +94,7 @@ body {
   }
 }
 
-@keyframes paper {
+@keyframes paperHover {
   0% {
     filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px #fff)
       drop-shadow(0px 0px 10px #34eb4f) drop-shadow(0px 0px 30px #249c35)
@@ -88,7 +108,7 @@ body {
   }
 }
 
-@keyframes scissors {
+@keyframes scissorsHover {
   0% {
     filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px #fff)
       drop-shadow(0px 0px 10px #33a2de) drop-shadow(0px 0px 30px #247dad)
@@ -100,4 +120,42 @@ body {
       drop-shadow(0px 0px 15px #33a2de) drop-shadow(0px 0px 40px #247dad)
       drop-shadow(0px 0px 60px #164d6b);
   }
+}
+
+@keyframes title {
+  0% {
+    filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px #fff)
+      drop-shadow(0px 0px 10px #33a2de) drop-shadow(0px 0px 30px #247dad)
+      drop-shadow(0px 0px 50px #164d6b);
+  }
+
+  100% {
+    filter: drop-shadow(0px 0px 3px #fff) drop-shadow(0px 0px 6px #fff)
+      drop-shadow(0px 0px 15px #33a2de) drop-shadow(0px 0px 40px #247dad)
+      drop-shadow(0px 0px 60px #164d6b);
+  }
+}
+
+.result {
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  gap: 16px;
+  font-size: 48px;
+}
+
+.moves {
+  display: flex;
+  margin: 24px;
+}
+
+.resultImage {
+  max-height: 300px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
 }
