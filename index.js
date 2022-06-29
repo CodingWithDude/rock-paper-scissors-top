@@ -1,7 +1,7 @@
 const moveOptions = ["rock", "paper", "scissors"];
 let playerResult = document.querySelector(".playerResult");
 let computerResult = document.querySelector(".computerResult");
-let winnerMessage = document.querySelector(".winner");
+let winnerMessage = document.querySelector(".winnerMessage");
 let playerImage = document.querySelector(".playerImage");
 let computerImage = document.querySelector(".computerImage");
 
@@ -25,14 +25,24 @@ function computerMove() {
 function checkGame() {
   if (computerSelection === playerSelection) {
     winnerMessage.innerHTML = "The Game is a Tie!";
+    playerImage.classList.remove("winnerImage");
+    computerImage.classList.remove("winnerImage");
   } else if (computerSelection === "paper" && playerSelection === "rock") {
     winnerMessage.innerHTML = "The Computer Wins!";
+    playerImage.classList.remove("winnerImage");
+    computerImage.classList.toggle("winnerImage");
   } else if (computerSelection === "rock" && playerSelection === "scissors") {
     winnerMessage.innerHTML = "The Computer Wins!";
+    playerImage.classList.remove("winnerImage");
+    computerImage.classList.toggle("winnerImage");
   } else if (computerSelection === "scissors" && playerSelection === "paper") {
     winnerMessage.innerHTML = "The Computer Wins!";
+    playerImage.classList.remove("winnerImage");
+    computerImage.classList.toggle("winnerImage");
   } else {
     winnerMessage.innerHTML = "The Player Wins!";
+    playerImage.classList.toggle("winnerImage");
+    computerImage.classList.remove("winnerImage");
   }
 }
 
