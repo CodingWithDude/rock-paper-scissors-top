@@ -1,17 +1,3 @@
-/*
-Play Against the computer
-    function of ComputerPlay will return
-        rock || paper || scissors
-
-Plays single round
-    function takes two parameters(playerSelection, computerSelection)
-        return string that declars the winner
-
-Make player selecton case-insensitive
-
-Working on the UI elements
-*/
-
 const moveOptions = ["rock", "paper", "scissors"];
 let playerResult = document.querySelector(".playerResult");
 let computerResult = document.querySelector(".computerResult");
